@@ -1,8 +1,8 @@
 
 
 // Teams' home goal multipliers:
-const manCityHome = 1.3;
-const manUtdHome = 1.3;
+const manCityHome = 1.25;
+const manUtdHome = 1.25;
 const liverpoolHome = 1.15;
 const chelseaHome = 1.21;
 const leicesterHome = 1.3;
@@ -23,9 +23,9 @@ const norwichHome = 0.82;
 const watfordHome = 0.8;
 
 // Teams' away goal multipliers:
-const manCityAway = 1.3;
-const manUtdAway = 1.3;
-const liverpoolAway = 1.3;
+const manCityAway = 1.25;
+const manUtdAway = 1.25;
+const liverpoolAway = 1.25;
 const chelseaAway = 1.05;
 const leicesterAway = 1.3;
 const westHamAway = 1.17;
@@ -44,8 +44,8 @@ const brentfordAway = 0.84;
 const norwichAway = 0.83;
 const watfordAway = 0.80;
 
-const scorePredictor = (home) => {
-    let goals = Math.random() * 285.6;
+const scorePredictor = (home, away) => {
+    let HomeGoalsRandomiser = Math.random() * 285.6;
     let homeMultiplier;
     switch (home) {
         case "Manchester City":
@@ -112,7 +112,7 @@ const scorePredictor = (home) => {
             console.log("Please choose a valid home team: Manchester City, Manchester United, Liverpool, Chelsea, Leicester City, West Ham United, Tottenham, Arsenal, Leeds United, Everton, Aston Villa, Newcastle United, Wolves, Crystal Palace, Southampton, Brighton, Burnley, Brentford, Norwich City or Watford.");
             break;
     }
-    let homeGoalScore = goals * homeMultiplier;
+    let homeGoalScore = HomeGoalsRandomiser * homeMultiplier;
     let homeGoals;
     if (homeGoalScore <= 102) {
         homeGoals = 0;
@@ -135,7 +135,97 @@ const scorePredictor = (home) => {
     } else if (homeGoalScore <= 357) {
         homeGoals = 9;
     }
+    let awayGoalsRandomiser = Math.random() * 285.6;
+    let awayMultiplier;
+    switch (away) {
+        case "Manchester City":
+            awayMultiplier = manCityAway;
+            break;
+        case "Manchester United":
+            awayMultiplier = manUtdAway;
+            break;
+        case "Liverpool":
+            awayMultiplier = liverpoolAway;
+            break;
+        case "Chelsea":
+            awayMultiplier = chelseaAway;
+            break;
+        case "Leicester City":
+            awayMultiplier = leicesterAway;
+            break;
+        case "West Ham United":
+            awayMultiplier = westHamAway;
+            break;
+        case "Tottenham":
+            awayMultiplier = tottenhamAway;
+            break;
+        case "Arsenal":
+            awayMultiplier = arsenalAway;
+            break;
+        case "Leeds United":
+            awayMultiplier = leedsAway;
+            break;
+        case "Everton":
+            awayMultiplier = evertonAway;
+            break;
+        case "Aston Villa":
+            awayMultiplier = astonAway;
+            break;
+        case "Newcastle United":
+            awayMultiplier = newcastleAway;
+            break;
+        case "Wolves":
+            awayMultiplier = wolvesAway;
+            break;
+        case "Crystal Palace":
+            awayMultiplier = crystalAway;
+            break;
+        case "Southampton":
+            awayMultiplier = southamptonAway;
+            break;
+        case "Brighton":
+            awayMultiplier = brightonAway;
+            break;
+        case "Burnley":
+            awayMultiplier = burnleyAway;
+            break;
+        case "Brentford":
+            awayMultiplier = brentfordAway;
+            break;
+        case "Norwich City":
+            awayMultiplier = norwichAway;
+            break;
+        case "Watford":
+            awayMultiplier = watfordAway;
+            break;
+        default:
+            console.log("Please choose a valid away team: Manchester City, Manchester United, Liverpool, Chelsea, Leicester City, West Ham United, Tottenham, Arsenal, Leeds United, Everton, Aston Villa, Newcastle United, Wolves, Crystal Palace, Southampton, Brighton, Burnley, Brentford, Norwich City or Watford.");
+            break;
+    }
+    let awayGoalScore = awayGoalsRandomiser * awayMultiplier;
+    let awayGoals;
+    if (awayGoalScore <= 102) {
+        awayGoals = 0;
+    } else if (awayGoalScore <= 210) {
+        awayGoals = 1;
+    } else if (awayGoalScore <= 280) {
+        awayGoals = 2;
+    } else if (awayGoalScore <= 335) {
+        awayGoals = 3;
+    } else if (awayGoalScore <= 349) {
+        awayGoals = 4;
+    } else if (awayGoalScore <= 353) {
+        awayGoals = 5;
+    } else if (awayGoalScore <= 354) {
+        awayGoals = 6;
+    } else if (awayGoalScore <= 355) {
+        awayGoals = 7;
+    } else if (awayGoalScore <= 356) {
+        awayGoals = 8;
+    } else if (awayGoalScore <= 357) {
+        awayGoals = 9;
+    }
     
 }
 
-scorePredictor("Crystal Palace");
+scorePredictor("Manchester City", "Liverpool");
