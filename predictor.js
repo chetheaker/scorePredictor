@@ -239,11 +239,13 @@ const scorePredictor = (home, away) => {
     } else if (totalGoals === 1) {
         firstGoalMinute = matchMinutes[Math.floor(Math.random() * matchMinutes.length)];
         console.log("The only goal will be scored in the " + firstGoalMinute + "\' minute.");
+    } else if (totalGoals === 0) {
+        console.log("This game will have no goals.")
     } else {
         firstGoalMinute = matchMinutes[Math.floor(Math.random() * (matchMinutes.length))];
         console.log("The first goal will be scored in the " + firstGoalMinute + "\' minute.");
     }
 }
 
-scorePredictor("Arsenal", "Liverpool");
+scorePredictor("Liverpool", "Crystal Palace");
 
